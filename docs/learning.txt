@@ -1,0 +1,61 @@
+Author: Saajan Maslanka
+
+All reinforcement learning approaches are taken from Reinforcement Learning: An Introduction
+by Richard S. Sutton and Andrew G. Barto
+
+A complete text can be found legally and for free at http://www.incompleteideas.net/book/the-book-2nd.html
+
+See below for a quick explainer of how reinforcement learning works.
+
+===================================================================================
+
+Before we can talk about reinforcement learning it is important to understand the
+prevailing theory behind the representation of learning in AI. This is not
+learning from a machine learning standpoint. No neural networks found here!
+
+Instead, we describe any "learning" occuring as part of an AI system in an agent
+centric way. Specifically, we say that in order to learn, we must have an agent (AI)
+experiencing an environment.
+
+There are various types of agents, but what we will be focusing on are agents that
+have the capability to do three main things: experience the environment, alter the
+environment, and think about how they change environment.
+
+These three components make up a good chunk of practical AI systems out there.
+
+Reinforcement learning falls into this camp. Reinforcement learning agents are able
+to do all three things. In particular, they are very good at using their reasoning
+about their actions to influence future actions, based on what actually happens when
+they perform actions.
+
+The reinforcement learning approaches used in this project consider the world to be
+episodic. That is, the world can be run through, reset, and played again. Additionally,
+the agents are designed for discrete time steps. That is, experiencing the
+world (the game) in periodic ticks. To summarize that, the agents live within a
+univers that is subdivided into many games, each subdivided further into ticks.
+
+In order to learn, the agent has an internal representation of the state of the world,
+its actions, and (key detail here) a reward function for what is considered a good
+move. This reward function must either be tailored tot he application by experts, or
+learned by itself.
+
+An important thing to remember is that an RL agent is looking for an optimal policy.
+A policy is a function that takes in a state and outputs an action. An optimal policy
+takes in a state and outputs the optimal action (in order to increase the end of
+episode reward).
+
+When the agent starts learning, it initializes itself to "a blank slate" configuration,
+where it knows nothing. Then, when the first episode starts, it recieves its first
+state information (S_0). In the beginning it has no idea what to do so it randomly
+picks an action (A_0). It executes that action and recieves a reward (R_0) from the
+environment. It stores this information and then ticks forward.
+
+On the next tick it recieves its new state (S_1) and updates its knowledge databank
+with some representation of "I was at S_0 and did A_0 and it felt R_0 and I ended up
+at S_1." It repeats this until the end of the episode at which point it amalgamates
+the knowledge gained into an approxmation of the optimal policy.
+
+It does this episodic process over and over again, each time bringing the calculated
+optimal policy closer and closer to the actual optimal policy.
+
+For more details please read Sutton and Barto, as it is a fantastic book.
